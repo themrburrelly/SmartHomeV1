@@ -18,16 +18,18 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Petita Prova</h1>
+    <div class="page-header text-center">
+      <h1>How To Open a Light!</h1>
+    </div>
     <div class="row">
-      <div class="col-xs-12">
-        <a class="btn btn-success" href="/llum/0" role="button">Obrir</a>
-        <a class="btn btn-danger" href="/llum/1" role="button">Tancar</a>
+      <div class="col-xs-12 col-md-2 col-md-offset-5">
+        <a class="btn btn-success center-block" href="/llum/0" role="button">Obrir</a>
+        <a class="btn btn-danger center-block" href="/llum/1" role="button">Tancar</a>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12">
-        <p class="bg-primary">{{ msg }}</p>
+      <div class="col-xs-12 col-md-2 col-md-offset-5">
+        <div class="alert alert-success text-center">{{ msg }}</div>
       </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
