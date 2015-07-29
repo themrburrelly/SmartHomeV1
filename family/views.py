@@ -20,4 +20,4 @@ except:
             if plataform == "rbpi":
                 GPIO.output(pin, GPIO.HIGH)
             context = {"msg": "La llum esta apagada"}
-        return render(request, 'llum/index.html', context)
+        return render(request, 'family/index.html', context)
