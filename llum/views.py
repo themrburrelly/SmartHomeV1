@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import RPi.GPIO as GPIO
 
-pin = 6
+pin = 7
 
 
 def index(request, state=1):
