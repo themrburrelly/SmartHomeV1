@@ -16,10 +16,11 @@ def index(request, state=1):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(relay_pin, GPIO.OUT)
         GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.add_event_detect(sensor_pin, GPIO.BOTH, bouncetime=150)
     if int(state) == 0 or GPIO.input(sensor_pin):
         if plataform == "rbpi":
             GPIO.output(relay_pin, GPIO.LOW)
-        context = {"msg": "La llum esta obert"}
+        context = {"msg": "La llum esta oberta"}
     else:
         if plataform == "rbpi":
             GPIO.output(relay_pin, GPIO.HIGH)
