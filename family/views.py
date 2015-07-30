@@ -4,7 +4,7 @@ from time import sleep
 try:
     import RPi.GPIO as GPIO
     plataform = "rbpi"
-    relay_pin = 9
+    relay_pin = 7
     sensor_pin = 10
     # set up raspberry pins
     GPIO.setmode(GPIO.BCM)
@@ -13,12 +13,12 @@ try:
 except:
     plataform = "mac"
 
-while True:
+"""while True:
     sleep(1)
     if GPIO.input(sensor_pin):
         GPIO.output(relay_pin, GPIO.LOW)
     else:
-        GPIO.output(relay_pin, GPIO.HIGH)
+        GPIO.output(relay_pin, GPIO.HIGH)"""
 
 
 def index(request, state=1):
