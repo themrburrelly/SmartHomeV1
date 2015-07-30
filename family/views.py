@@ -15,7 +15,7 @@ def index(request, state=1):
         # set up raspberry pins
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(relay_pin, GPIO.OUT)
-        GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUT_DOWN)
+        GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     if int(state) == 0 or GPIO.input():
         if plataform == "rbpi":
             GPIO.output(relay_pin, GPIO.LOW)
