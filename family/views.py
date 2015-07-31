@@ -13,12 +13,12 @@ try:
 except:
     plataform = "mac"
 
-"""while True:
+while True:
     sleep(1)
     if GPIO.input(sensor_pin):
         GPIO.output(relay_pin, GPIO.LOW)
     else:
-        GPIO.output(relay_pin, GPIO.HIGH)"""
+        GPIO.output(relay_pin, GPIO.HIGH)
 
 
 def index(request, state=1):
