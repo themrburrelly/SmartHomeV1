@@ -8,6 +8,8 @@ try:
     sensor_pin = 10
     # set up raspberry pins
     GPIO.setmode(GPIO.BCM)
+    for pin in range(2, 10):
+        GPIO.setup(pin, GPIO.OUT)
     GPIO.setup(relay_pin, GPIO.OUT)
     GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 except:
