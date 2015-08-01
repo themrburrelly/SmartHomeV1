@@ -10,6 +10,7 @@ try:
     GPIO.setmode(GPIO.BCM)
     for pin in range(2, 10):
         GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, GPIO.HIGH)
     GPIO.setup(relay_pin, GPIO.OUT)
     GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 except:
