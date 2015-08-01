@@ -4,7 +4,7 @@ from time import sleep
 try:
     import RPi.GPIO as GPIO
     plataform = "rbpi"
-    relay_pin = 2
+    relay_pin = 3
     sensor_pin = 10
     # set up raspberry pins
     GPIO.setmode(GPIO.BCM)
