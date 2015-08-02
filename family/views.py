@@ -26,7 +26,7 @@ except:
 
 def index(request, state=1):
     """Return the responce for the request."""
-    if int(state) == 0 or GPIO.input(sensor_pin):
+    if int(state) == 0:
         if plataform == "rbpi":
             GPIO.output(relay_pin, GPIO.LOW)
         context = {"msg": "La llum esta oberta"}
