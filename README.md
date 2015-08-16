@@ -1,7 +1,6 @@
 <h1>Raspberry Pi Server Home Project</h1>
 
 <h3>How To</h3>
-=
 <table>
   <tr>
     <td>Start MongoDB Server</td>
