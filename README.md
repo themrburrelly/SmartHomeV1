@@ -12,6 +12,6 @@
   </tr>
   <tr>
     <td>Start Virtual Env</td>
-    <td><code>$ source ~/Documents/server_venv/bin/activate</code></td> 
+    <td><code>$ source ~/Documents/server/bin/activate</code></td> 
   </tr>
 </table>
