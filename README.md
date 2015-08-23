@@ -1,4 +1,6 @@
-<h1>Raspberry Pi Server Home Project</h1>
+<h1>Raspberry Pi SmartHome Project</h1>
+
+![](https://0.s3.envato.com/files/94730970/pv_590.jpg)
 
 <h3>How To</h3>
 <table>
