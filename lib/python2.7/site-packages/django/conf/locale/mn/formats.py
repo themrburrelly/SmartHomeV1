@@ -1,12 +1,11 @@
 # -*- encoding: utf-8 -*-
 # This file is distributed under the same license as the Django package.
 #
-from __future__ import unicode_literals
 
 # The *_FORMAT strings use the Django date format syntax,
 # see http://docs.djangoproject.com/en/dev/ref/templates/builtins/#date
 DATE_FORMAT = 'd F Y'
-TIME_FORMAT = 'g:i A'
+TIME_FORMAT = 'g:i:s A'
 # DATETIME_FORMAT =
 # YEAR_MONTH_FORMAT =
 # MONTH_DAY_FORMAT =
