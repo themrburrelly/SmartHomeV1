@@ -6,7 +6,7 @@
 <table>
   <tr>
     <td>Start MongoDB Server</td>
-    <td><code>$ ~/Documents/server/mongodb/mongod --dbpath ~/Documents/server/data/db</code></td> 
+    <td><code>$ ~/Documents/server/mongodb/bin/mongod --dbpath ~/Documents/server/data/db</code></td> 
   </tr>
   <tr>
     <td>Start Django Server</td>
