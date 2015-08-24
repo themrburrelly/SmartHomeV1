@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from pymongo import MongoClient
+import datetime
 from time import sleep
+
+# Start conection with mongo db server
+client = MongoClient()
+db = client.db
 # check if the code is running on the raspberry pi
 try:
     import RPi.GPIO as GPIO
@@ -16,22 +22,8 @@ try:
 except:
     plataform = "mac"
 
-"""while True:
-    sleep(1)
-    if GPIO.input(sensor_pin):
-        GPIO.output(relay_pin, GPIO.LOW)
-    else:
-        GPIO.output(relay_pin, GPIO.HIGH)"""
-
 
 def index(request, state=1):
-    """Return the responce for the request."""
-    if int(state) == 0:
-        if plataform == "rbpi":
-            GPIO.output(relay_pin, GPIO.LOW)
-        context = {"msg": "La llum esta oberta"}
-    else:
-        if plataform == "rbpi":
-            GPIO.output(relay_pin, GPIO.HIGH)
-        context = {"msg": "La llum esta apagada"}
+    home_elements = db.home_elements
+    context = home_elements.find()
     return render(request, 'family/index.html', context)
