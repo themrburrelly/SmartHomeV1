@@ -4,5 +4,4 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index1'),
-    url(r'^(?P<state>.*?)/$', views.index, name='index2'),
 ]
