@@ -13,7 +13,7 @@ outputs = db.family_outputs
 GPIO.setmode(GPIO.BCM)
 for pin in range(2, 10):
     GPIO.setup(pin, GPIO.OUT)
-    GPIO.output(pin, GPIO.LOW)
+    GPIO.output(pin, GPIO.HIGH)
 
 # LOOP
 # ---------------------------------
