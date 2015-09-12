@@ -20,7 +20,7 @@ for pin in range(2, 10):
 while True:
     for output in outputs.find():
         if output['state'] == 0:
-            GPIO.output(output['pin'], GPIO.LOW)
-        else:
             GPIO.output(output['pin'], GPIO.HIGH)
+        else:
+            GPIO.output(output['pin'], GPIO.LOW)
     sleep(1)
