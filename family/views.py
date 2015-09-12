@@ -14,7 +14,7 @@ def new_element(request):
 
 
 def add_element(request):
-    home_elements.objects.update_or_create(name=request.POST['name'],
+    home_elements.objects.get_or_create(name=request.POST['name'],
                                            defaults={'date': timezone.now(),
                                                      'img': "/static/family/img/"+request.POST['name']+".png"}
                                            )
