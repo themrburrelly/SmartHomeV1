@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from family.models import home_elements
+from family.models import home_elements, outputs
 from django.utils import timezone
 
 
@@ -16,6 +16,27 @@ def new_element(request):
 def add_element(request):
     home_elements.objects.get_or_create(name=request.POST['name'],
                                         defaults={'date': timezone.now(),
-                                                  'img': "/static/family/img/"+request.POST['name']+".png"}
+                                                  'img': "/static/family/img/%s.png" % request.POST['name']}
                                         )
     return index(request)
+
+
+def output(request):
+    context = {"outputs": outputs.objects.all()}
+    return render(request, 'family/outputs.html', context)
+
+
+def new_output(request):
+    context = {}
+    return render(request, 'family/new_output.html', context)
+
+
+def add_output(request):
+    outputs.objects.get_or_create(name=request.POST['name'], pin=request.POST['pin'])
+    return output(request)
+
+
+def change_output(request, output_name):
+    val = 1 - outputs.objects.get(name=output_name).state
+    outputs.objects.filter(name=output_name).update(state=val)
+    return output(request)

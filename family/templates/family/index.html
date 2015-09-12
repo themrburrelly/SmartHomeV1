@@ -3,10 +3,12 @@
 <div class="container-fluid">
     <div class="row">
         {% for element in home_elements %}
+        <a href="{% url element.name %}">
             <div class="{{ element.size }}">
                 <p>{{ element.name }}</p>
                 <img width="128" height="128" src="{{ element.img }}"/>
             </div>
+        </a>
         {% endfor %}
         <div class="col-sm-2 col-xs-4">
             <form action="{% url 'new_element' %}" method="get">
