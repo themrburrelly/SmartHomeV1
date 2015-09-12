@@ -1,16 +1,7 @@
 from django.shortcuts import render
-from pymongo import MongoClient
-
-
-# Start conection with mongo db server
-client = MongoClient()
-db = client.db
+from family.models import home_elements
 
 
 def index(request):
-    home_elements = db.home_elements
-    context = home_elements.find_one()
-    client.close()
+    context = {"home_elements": home_elements.objects.all()}
     return render(request, 'family/index.html', context)
-
-

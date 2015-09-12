@@ -1,5 +1,7 @@
 {% extends "family/base.html" %}
 {% block content %}
-<p>{{ name }}</p>
-<img src="{{ img }}"/>
-{% endblock %}
+{% for element in home_elements %}
+  <p>{{ element.name }}</p>
+  <img src="{{ element.img }}"/>
+{% endfor %}
+{% endblock content %}
