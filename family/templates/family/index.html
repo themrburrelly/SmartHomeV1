@@ -1,16 +1,19 @@
 {% extends "family/base.html" %}
 {% block content %}
-{% for element in home_elements %}
-  <div>
-    <p>{{ element.name }}</p>
-    <p>{{ element.metadata}}</p>
-    <p>{{ element.img}}</p>
-    <p>{{ element.date}}</p>
-    <p>{{ element.size}}</p>
-    <img src="{{ element.img }}"/>
+<div class="container-fluid">
+    <div class="row">
+        {% for element in home_elements %}
+            <div class="{{ element.size }}">
+                <p>{{ element.name }}</p>
+                <img width="128" height="128" src="{{ element.img }}"/>
+            </div>
+        {% endfor %}
+        <div class="col-sm-2 col-xs-4">
+            <form action="{% url 'new_element' %}" method="get">
+              <button type="submit">New Element</button>
+            </form>
+        </div>
   </div>
-{% endfor %}
-<form action="{% url 'new_element' %}" method="get">
-  <button type="submit">New Element</button>
-</form>
+</div>
+
 {% endblock %}
