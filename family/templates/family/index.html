@@ -1,7 +1,16 @@
 {% extends "family/base.html" %}
 {% block content %}
 {% for element in home_elements %}
-  <p>{{ element.name }}</p>
-  <img src="{{ element.img }}"/>
+  <div>
+    <p>{{ element.name }}</p>
+    <p>{{ element.metadata}}</p>
+    <p>{{ element.img}}</p>
+    <p>{{ element.date}}</p>
+    <p>{{ element.size}}</p>
+    <img src="{{ element.img }}"/>
+  </div>
 {% endfor %}
-{% endblock content %}
+<form action="{% url 'new_element' %}" method="get">
+  <button type="submit">New Element</button>
+</form>
+{% endblock %}
