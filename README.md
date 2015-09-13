@@ -17,7 +17,7 @@
     <td><code>$ source ~/Documents/server/bin/activate</code></td> 
   </tr>
   <tr>
-    <td>Start Virtual Env</td>
-    <td><code>$ source ~/Documents/server/bin/activate</code></td> 
+    <td>Shutdown Raspberry PI</td>
+    <td><code>$ sudo shutdown -h now</code></td> 
   </tr>
 </table>
