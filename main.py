@@ -16,7 +16,7 @@ for pin in range(2, 10):
     GPIO.output(pin, GPIO.HIGH)
 
 motion_sensor_pin = 10
-GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(motion_sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # LOOP
 # ---------------------------------
 count = 0
