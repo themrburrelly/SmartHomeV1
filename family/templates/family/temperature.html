@@ -1,0 +1,8 @@
+{% extends "family/base.html" %}
+{% block content %}
+    <div class="row">
+        {% for input in inputs %}
+            <h4>{{ input.name|title }}: {{input.metadata}}</h4>
+        {% endfor %}
+    </div>
+{% endblock %}
