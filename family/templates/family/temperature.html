@@ -2,7 +2,7 @@
 {% block content %}
     <div class="row">
         {% for input in inputs %}
-            <h4>{{ input.name|title }}: {{input.metadata}}</h4>
+            <h4 class="text-center">{{ input.name|title }}: {{input.metadata}}</h4>
         {% endfor %}
     </div>
 {% endblock %}
