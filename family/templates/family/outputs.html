@@ -3,18 +3,19 @@
 <div class="container-fluid">
     <div class="row">
         {% for output in outputs %}
-            <div class="col-sm-2 col-xs-4">
-                <form action="{% url 'change_output' output.name %}" method="get">
-                  <button type="submit">{{ output.name }}</button>
-                  <p>{{output.state}}</p>
-                  <p>{{output.pin}}</p>
-                  <p>{{output.time_log}}</p>
-                </form>
-            </div>
+        <div class="col-sm-2 col-xs-4">
+            <form action="{% url 'change_output' output.name %}" method="get">
+                {% if output.state == 0 %}
+                    <button type="submit" class="btn btn-success btn-lg btn-block">{{output.name|title}}</button>
+                {% else %}
+                    <button type="submit" class="btn btn-warning btn-lg btn-block">{{output.name|title}}</button>
+                {% endif %}
+            </form>
+        </div>
         {% endfor %}
         <div class="col-sm-2 col-xs-4">
             <form action="{% url 'new_output' %}" method="get">
-              <button type="submit">New Output</button>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">New Output</button>
             </form>
         </div>
   </div>

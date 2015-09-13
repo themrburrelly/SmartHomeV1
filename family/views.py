@@ -37,6 +37,10 @@ def add_output(request):
 
 
 def change_output(request, output_name):
+    if output_name == 'up' and outputs.objects.get(name='up').state == 0:
+        outputs.objects.filter(name='down').update(state=0)
+    if output_name == 'down' and outputs.objects.get(name='down').state == 0:
+        outputs.objects.filter(name='up').update(state=0)
     val = 1 - outputs.objects.get(name=output_name).state
     outputs.objects.filter(name=output_name).update(state=val)
     return output(request)

@@ -77,10 +77,11 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default' : {
-      'ENGINE' : 'django_mongodb_engine',
-      'NAME' : 'db'
-   }
+    'default': {
+        'ENGINE': 'django_mongodb_engine',
+        'NAME': 'db',
+        'HOST': '192.168.1.20',
+    }
 }
 
 
