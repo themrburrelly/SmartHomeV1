@@ -9,6 +9,7 @@ import Adafruit_DHT as dht
 client = MongoClient()
 db = client.db
 outputs = db.family_outputs
+inputs = db.family_inputs
 
 # Raspberry Setup
 GPIO.setmode(GPIO.BCM)
@@ -36,5 +37,6 @@ while True:
     if count < 650:
         count += 1
     h, t = dht.read_retry(dht.DHT22, temperature_pin)
-    print 'Temp={0:0.1f}*C Humidity={1:0.1f}%'.format(t, h)
+    inputs.update({'name': 'temperature'}, {"$set": {'meta': t}}, upsert=False)
+    inputs.update({'name': 'humidity'}, {"$set": {'meta': h}}, upsert=False)
     sleep(1)

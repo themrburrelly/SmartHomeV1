@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from family.models import home_elements, outputs
+from family.models import home_elements, outputs, inputs
 from django.utils import timezone
 
 
@@ -44,3 +44,7 @@ def change_output(request, output_name):
     val = 1 - outputs.objects.get(name=output_name).state
     outputs.objects.filter(name=output_name).update(state=val)
     return output(request)
+
+def temperature(request):
+    context = {"inputs": inputs.objects.all()}
+    return render(request, 'family/temperature.html', context)
