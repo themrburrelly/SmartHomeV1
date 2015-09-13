@@ -15,3 +15,10 @@ class outputs(models.Model):
     pin = models.IntegerField()
     state = models.IntegerField(blank=True, null=True, default=0)
     time_log = ListField(blank=True, null=True, default=[])
+
+
+class inputs(models.Model):
+    name = models.TextField()
+    pin = models.IntegerField()
+    metadata = models.IntegerField(blank=True, null=True, default=0)
+    log = ListField(blank=True, null=True, default=[])

@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 from pymongo import MongoClient
+import Adafruit_DHT as dht
 
 # SETUP
 # ---------------------------------
@@ -15,6 +16,7 @@ for pin in range(2, 10):
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
 
+temperature_pin = 24
 motion_sensor_pin = 10
 GPIO.setup(motion_sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # LOOP
@@ -33,4 +35,6 @@ while True:
             GPIO.output(output['pin'], GPIO.LOW)
     if count < 650:
         count += 1
+    h, t = dht.read_retry(dht.DHT22, temperature_pin)
+    print 'Temp={0:0.1f}*C Humidity={1:0.1f}%'.format(t, h)
     sleep(1)
