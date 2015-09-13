@@ -5,11 +5,11 @@
         {% csrf_token %}
         <div class="form-group">
             <label>Output Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name">
+            <input type="text" class="form-control" name="name" placeholder="Name">
         </div>
         <div class="form-group">
             <label>Output Pin</label>
-            <input type="number" class="form-control" id="pin" placeholder="Pin">
+            <input type="number" class="form-control" name="pin" placeholder="Pin">
         </div>
         <button type="submit" class="btn btn-default">Submit</button><br>
     </form>
