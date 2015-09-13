@@ -15,10 +15,11 @@ for pin in range(2, 10):
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
 
+motion_sensor_pin = 10
+GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # LOOP
 # ---------------------------------
 count = 0
-motion_sensor_pin = 10
 while True:
     if GPIO.input(motion_sensor_pin):
         count = 0
