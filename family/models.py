@@ -22,3 +22,7 @@ class inputs(models.Model):
     pin = models.IntegerField()
     metadata = models.IntegerField(blank=True, null=True, default=0)
     log = ListField(blank=True, null=True, default=[])
+
+class settings(models.Models):
+    name = models.TextField()
+    value = models.IntegerField()

@@ -80,7 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_engine',
         'NAME': 'db',
-        'HOST': '192.168.1.20',
+        'HOST': '62.57.154.134',
+        'PORT': '27017'
     }
 }
 

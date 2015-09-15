@@ -4,11 +4,16 @@
     <div class="row">
         {% for output in outputs %}
         <div class="col-sm-2 col-xs-4">
-            <form action="{% url 'change_output' output.name %}" method="get">
+            <form action="{% url 'change_output' %}" method="post">
+                {% csrf_token %}
                 {% if output.state == 0 %}
-                    <button type="submit" class="btn btn-success btn-lg btn-block">{{output.name|title}}</button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block" name="name">
+                        {{output.name|title}}
+                    </button>
                 {% else %}
-                    <button type="submit" class="btn btn-warning btn-lg btn-block">{{output.name|title}}</button>
+                    <button type="submit" class="btn btn-warning btn-lg btn-block" name="name">
+                        {{output.name|title}}
+                    </button>
                 {% endif %}
             </form>
         </div>
