@@ -23,6 +23,7 @@ class inputs(models.Model):
     metadata = models.IntegerField(blank=True, null=True, default=0)
     log = ListField(blank=True, null=True, default=[])
 
-class settings(models.Models):
+
+class settings(models.Model):
     name = models.TextField()
     value = models.IntegerField()
