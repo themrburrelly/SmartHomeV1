@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from family.models import home_elements, outputs, inputs
+from family.models import home_elements, outputs, inputs, settings
 from django.utils import timezone
 
 
@@ -58,6 +58,12 @@ def delete(request):
     return index(request)
 
 
-def settings(request):
+def setting(request):
+    context = {"settings": settings.objects.all()}
+    return render(request, 'family/settings.html', context)
+
+
+def add_settings(request):
     outputs.objects.get_or_create(name=request.POST['name'], pin=request.POST['value'])
-    return index(request)
+    return setting(request)
+
