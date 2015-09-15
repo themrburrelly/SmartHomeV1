@@ -37,12 +37,12 @@ def add_output(request):
 
 
 def change_output(request):
-    if request['name'] == 'up' and outputs.objects.get(name='up').state == 0:
+    if request.POST['name'] == 'up' and outputs.objects.get(name='up').state == 0:
         outputs.objects.filter(name='down').update(state=0)
-    if request['name'] == 'down' and outputs.objects.get(name='down').state == 0:
+    if request.POST['name'] == 'down' and outputs.objects.get(name='down').state == 0:
         outputs.objects.filter(name='up').update(state=0)
-    val = 1 - outputs.objects.get(name=request['name']).state
-    outputs.objects.filter(name=request['name']).update(state=val)
+    val = 1 - outputs.objects.get(name=request.POST['name']).state
+    outputs.objects.filter(name=request.POST['name']).update(state=val)
     return output(request)
 
 
