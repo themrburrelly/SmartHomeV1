@@ -41,10 +41,10 @@ def change_output(request):
         outputs.objects.filter(name='down').update(state=0)
     if request.POST['name'] == 'down' and outputs.objects.get(name='down').state == 0:
         outputs.objects.filter(name='up').update(state=0)
-    try:
-        val = 1 - outputs.objects.get(name=request.POST['name']).state
-    except:
-        pass
+    # try:
+    val = 1 - outputs.objects.get(name=request.POST['name']).state
+    # except:
+    #   pass
     outputs.objects.filter(name=request.POST['name']).update(state=val)
     return output(request)
 
