@@ -36,7 +36,7 @@ while True:
             GPIO.output(output['pin'], GPIO.LOW)
     if count < settings.find_one({"name": "motion_sensor_timer"})['value']+1:
         count += 1
-    h, t = dht.read_retry(dht.DHT22, inputs.find({'name': 'temperature'})['pin'])
+    h, t = dht.read_retry(dht.DHT22, inputs.find_one({'name': 'temperature'})['pin'])
     inputs.update({'name': 'temperature'}, {"$set": {'metadata': t}}, upsert=False)
     inputs.update({'name': 'humidity'}, {"$set": {'metadata': h}}, upsert=False)
     sleep(1)
