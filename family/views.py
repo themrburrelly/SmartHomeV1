@@ -55,6 +55,7 @@ def delete(request):
     home_elements.objects.filter(request.POST['name']).delete()
     inputs.objects.filter(request.POST['name']).delete()
     outputs.objects.filter(request.POST['name']).delete()
+    settings.objects.filter(request.POST['name']).delete()
     return index(request)
 
 
@@ -66,4 +67,3 @@ def setting(request):
 def add_settings(request):
     outputs.objects.get_or_create(name=request.POST['name'], pin=request.POST['value'])
     return setting(request)
-
