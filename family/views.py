@@ -52,10 +52,10 @@ def temperature(request):
 
 
 def delete(request):
-    home_elements.objects.filter(request.POST['name']).delete()
-    inputs.objects.filter(request.POST['name']).delete()
-    outputs.objects.filter(request.POST['name']).delete()
-    settings.objects.filter(request.POST['name']).delete()
+    home_elements.objects.filter(name=request.POST['name']).delete()
+    inputs.objects.filter(name=request.POST['name']).delete()
+    outputs.objects.filter(name=request.POST['name']).delete()
+    settings.objects.filter(name=request.POST['name']).delete()
     return index(request)
 
 
