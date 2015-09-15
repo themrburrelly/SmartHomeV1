@@ -18,7 +18,7 @@ for pin in range(2, 10):
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
 
-motion_sensor_pin = setting.find_one({"name": "motion_sensor_pin"})['value']
+motion_sensor_pin = settings.find_one({"name": "motion_sensor_pin"})['value']
 GPIO.setup(motion_sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # LOOP
 # ---------------------------------
