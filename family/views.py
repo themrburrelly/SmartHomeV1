@@ -68,5 +68,5 @@ def setting(request):
 
 
 def add_settings(request):
-    outputs.objects.get_or_create(name=request.POST['name'], pin=request.POST['value'])
+    settings.objects.get_or_create(name=request.POST['name'], pin=request.POST['value'])
     return setting(request)
