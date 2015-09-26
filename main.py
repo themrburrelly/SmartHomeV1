@@ -49,8 +49,11 @@ while True:
     inputs.update({'name': 'humidity'}, {"$set": {'metadata': h}}, upsert=False)
 
     events = calendar.main()
+    print (events)
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
+        print(event['summary'])
+        print(abs(dt.strptime(start, "%Y-%m-%dT%H:%M:%S+02:00")-dt.now()) < td(minutes=1))
         if event['summary'] == "Alarma" and abs(dt.strptime(start, "%Y-%m-%dT%H:%M:%S+02:00")-dt.now()) < td(minutes=1):
             GPIO.output(output['7'], GPIO.LOW)
     sleep(0.5)
