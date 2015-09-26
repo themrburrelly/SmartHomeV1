@@ -54,6 +54,10 @@ while True:
         start = event['start'].get('dateTime', event['start'].get('date'))
         print(event['summary'])
         print(abs(dt.strptime(start, "%Y-%m-%dT%H:%M:%S+02:00")-dt.now()) < td(minutes=1))
-        if event['summary'] == "Alarma" and abs(dt.strptime(start, "%Y-%m-%dT%H:%M:%S+02:00")-dt.now()) < td(minutes=1):
-            GPIO.output(output['7'], GPIO.LOW)
+        try:
+            time = abs(dt.strptime(start, "%Y-%m-%dT%H:%M:%S+02:00"))
+            if event['summary'] == "Alarma" and time-dt.now() < td(minutes=1):
+                GPIO.output(output['7'], GPIO.LOW)
+        except:
+            pass
     sleep(0.5)
