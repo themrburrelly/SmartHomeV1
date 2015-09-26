@@ -2,6 +2,9 @@ import RPi.GPIO as GPIO
 from time import sleep
 from pymongo import MongoClient
 import Adafruit_DHT as dht
+from datetime import datetime as dt
+from datetime import timedelta as td
+import calendar
 
 # SETUP
 # ---------------------------------
@@ -44,4 +47,10 @@ while True:
     h, t = dht.read_retry(dht.DHT22, inputs.find_one({'name': 'temperature'})['pin'])
     inputs.update({'name': 'temperature'}, {"$set": {'metadata': t}}, upsert=False)
     inputs.update({'name': 'humidity'}, {"$set": {'metadata': h}}, upsert=False)
-    sleep(1)
+
+    events = calendar.main()
+    for event in events:
+        start = event['start'].get('dateTime', event['start'].get('date'))
+        if event['summary'] == "Alarma" and abs(dt.strptime(start, "%Y-%m-%dT%H:%M:%S+02:00")-dt.now()) < td(minutes=1):
+            GPIO.output(output['7'], GPIO.LOW)
+    sleep(0.5)
