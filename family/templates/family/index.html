@@ -2,13 +2,12 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        {% for element in home_elements %}
-        <a href="{% url element.name %}">
-            <div class="{{ element.size }}">
-                <img class="img-responsive img-circle" src="{{ element.img }}"/>
-            </div>
-        </a>
-        {% endfor %}
+        <div class="col-md-6 col-xs-6" style="background-color: 7E8687">
+            <img class="img-responsive img-circle" src="{{ element.img }}"/>
+        </div>
+        <div class="col-md-6 col-xs-6" style="background-color: 2BB9D9">
+            <img class="img-responsive img-circle" src="{{ element.img }}"/>
+        </div>
         <div class="col-sm-2 col-xs-4">
             <form action="{% url 'new_element' %}" method="get">
               <button type="submit" class="btn btn-primary center-block">New Element</button>
