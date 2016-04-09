@@ -28,9 +28,11 @@
         background-size: cover;
       }
       .btn{
-        height: 80px;
+        height: 200px;
+        width: 200px;
         margin-top: 20px;
-        border-radius: 0px;
+        border-radius: 100%;
+        border-width: 10px;
       }
     </style>
   </head>
@@ -67,24 +69,36 @@
     <div id="content"> <!-- {% block content %}{% endblock %} -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="col-md-6 col-xs-12">
-            <input type="submit" class="btn btn-success btn-lg btn-block active" name="name" value="Llum Principal">
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
+          <div class="col-md-4 col-xs-6">
+            <button type="submit" class="btn btn-success btn-lg btn-block" name="name" value="Llum Principal">
+              <img src="file:///Users/Marc/Documents/server/family/static/family/img/main_light.png" height="150px" width="150px">
+            </button>
           </div>
-          <div class="col-md-6 col-xs-12">
-            <input type="submit" class="btn btn-warning btn-lg btn-block active" name="name" value="Llum Secondaria">
+          <div class="col-md-4 col-xs-6">
+            <button type="submit" class="btn btn-warning btn-lg btn-block active" name="name" value="Llum Principal">
+              <img src="file:///Users/Marc/Documents/server/family/static/family/img/second_light.png" height="150px" width="150px">
+            </button>
           </div>
-          <div class="col-md-6 col-xs-12">
-            <input type="submit" class="btn btn-primary btn-lg btn-block" name="name" value="Endolls">
+          <div class="col-md-4 col-xs-6">
+            <button type="submit" class="btn btn-danger btn-lg btn-block active" name="name" value="Llum Principal">
+              <img src="file:///Users/Marc/Documents/server/family/static/family/img/desk.png" height="150px" width="150px">
+            </button>
           </div>
-          <div class="col-md-6 col-xs-12">
-            <input type="submit" class="btn btn-danger btn-lg btn-block" name="name" value="Aire">
+          <div class="col-md-4 col-xs-6">
+            <button type="submit" class="btn btn-info btn-lg btn-block active" name="name" value="Llum Principal">
+              <img src="file:///Users/Marc/Documents/server/family/static/family/img/window.png" height="150px" width="150px">
+            </button>
           </div>
-          <div class="col-md-6 col-xs-12">
-            <input type="submit" class="btn btn-default btn-lg btn-block" name="name" value="Pujar">
+          <div class="col-md-4 col-xs-6">
+            <button type="submit" class="btn btn-primary btn-lg btn-block active" name="name" value="Llum Principal">
+              <img src="file:///Users/Marc/Documents/server/family/static/family/img/curtain.png" height="150px" width="150px">
+            </button>
           </div>
-          <div class="col-md-6 col-xs-12">
-            <input type="submit" class="btn btn-info btn-lg btn-block" name="name" value="Baixar">
+          <div class="col-md-4 col-xs-6">
+            <button type="submit" class="btn btn-default btn-lg btn-block active" name="name" value="Llum Principal">
+              <img src="file:///Users/Marc/Documents/server/family/static/family/img/air.png" height="150px" width="150px">
+            </button>
           </div>
         </div>
       </div>
