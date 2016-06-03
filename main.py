@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from time
+import time
 from pymongo import MongoClient
 import Adafruit_DHT as dht
 import datetime
@@ -43,13 +43,14 @@ while True:
             if GPIO.input(motion_sensor_pin):
                 # Fer que el temps d'apagat de la llum incrementi en funcio de la cantitat de cops que passes per dabant
                 count = 0
-                if datetime.time(23, 30) < timestamp < datetime.time(23, 31):
-                    outputs.update({'name': 'Left Light'}, {"$set": {'state': 1}}, upsert=False)
+                timestamp = datetime.datetime.now().time()
+                if datetime.time(22, 30) < timestamp < datetime.time(23, 00):
+                    outputs.update({'name': 'Left light'}, {"$set": {'state': 1}}, upsert=False)
                 else:
-                    outputs.update({'name': 'Right Light'}, {"$set": {'state': 1}}, upsert=False)
+                    outputs.update({'name': 'Right light'}, {"$set": {'state': 1}}, upsert=False)
             if count == motion_sensor_timer:
-                outputs.update({'name': 'Right Light'}, {"$set": {'state': 0}}, upsert=False)
-                outputs.update({'name': 'Left Light'}, {"$set": {'state': 0}}, upsert=False)
+                outputs.update({'name': 'Right light'}, {"$set": {'state': 0}}, upsert=False)
+                outputs.update({'name': 'Left light'}, {"$set": {'state': 0}}, upsert=False)
             if count < motion_sensor_timer:
                 count += 1
     except:
@@ -57,20 +58,20 @@ while True:
 
     # Time Trigger
     timestamp = datetime.datetime.now().time()
-    if datetime.time(8, 30) < timestamp < datetime.time(8, 31):
+    if datetime.time(7, 30) < timestamp < datetime.time(7, 31):
         settings.update({'name': 'motion_sensor_toggle'}, {"$set": {'value': 1}}, upsert=False)
         outputs.update({'name': 'Endolls'}, {"$set": {'state': 0}}, upsert=False)
         outputs.update({'name': 'Baixar'}, {"$set": {'state': 0}}, upsert=False)
         outputs.update({'name': 'Pujar'}, {"$set": {'state': 1}}, upsert=False)
-    if datetime.time(18, 00) < timestamp < datetime.time(18, 01):
+    if datetime.time(17, 00) < timestamp < datetime.time(17, 01):
         outputs.update({'name': 'Pujar'}, {"$set": {'state': 0}}, upsert=False)
         outputs.update({'name': 'Baixar'}, {"$set": {'state': 1}}, upsert=False)
-    if datetime.time(00, 00) < timestamp < datetime.time(00, 01):
+    if datetime.time(23, 00) < timestamp < datetime.time(23, 01):
         settings.update({'name': 'motion_sensor_toggle'}, {"$set": {'value': 0}}, upsert=False)
         outputs.update({'name': 'Endolls'}, {"$set": {'state': 1}}, upsert=False)
         time.sleep(30)
-        outputs.update({'name': 'Right Light'}, {"$set": {'state': 0}}, upsert=False)
-        outputs.update({'name': 'Left Light'}, {"$set": {'state': 0}}, upsert=False)
+        outputs.update({'name': 'Right light'}, {"$set": {'state': 0}}, upsert=False)
+        outputs.update({'name': 'Left light'}, {"$set": {'state': 0}}, upsert=False)
 
     # Working
     if outputs.find_one({"name": "Endolls"})['state']:

@@ -1,0 +1,6 @@
+body {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: #17181c url('/static/family/img/background.jpg') repeat-x fixed !important;
+}
